@@ -13,4 +13,5 @@ fi
 DESTINATION=$1
 
 cp BUILD "$DESTINATION"
+cp LICENSE "$DESTINATION"
 cp -r GoogleSignIn.xcframework "$DESTINATION"
