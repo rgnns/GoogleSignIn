@@ -1,0 +1,50 @@
+name: GoogleSignIn
+options:
+  bundleIdPrefix: com.google.GoogleSignIn
+  
+packages:
+  AppAuth:
+    url: https://github.com/openid/AppAuth-iOS.git
+    from: 1.4.0
+  GTMAppAuth:
+    url: https://github.com/google/GTMAppAuth.git
+    from: 1.2.0
+  GTMSessionFetcherCore:
+    url: https://github.com/google/gtm-session-fetcher
+    from: 1.5.0
+
+targets:
+  GoogleSignIn:
+    type: framework
+    platform: iOS
+    settings:
+      base:
+        GCC_PREPROCESSOR_DEFINITIONS: "$(inherited) SWIFT_PACKAGE=1 GID_SDK_VERSION=6.1.0"
+        HEADER_SEARCH_PATHS: "$(SRCROOT)/**"
+    sources:
+      - path: GoogleSignIn/Sources
+        buildPhase: sources
+        includes:
+          - "*.[hm]"
+      - path: GoogleSignIn/Sources/Resources
+        name: Resources
+        buildPhase: resources
+        type: folder
+      - path: GoogleSignIn/Sources/Strings
+        name: Strings
+        buildPhase: resources
+        type: folder
+      - path: GoogleSignIn/Sources/Public
+        name: Public
+        buildPhase: headers
+        headerVisibility: public
+    dependencies:
+      - package: AppAuth
+      - package: GTMAppAuth
+      - package: GTMSessionFetcherCore
+      - sdk: CoreGraphics.framework
+      - sdk: CoreText.framework
+      - sdk: Foundation.framework
+      - sdk: LocalAuthentication.framework
+      - sdk: Security.framework
+      - sdk: UIKit.framework
