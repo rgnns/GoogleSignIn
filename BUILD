@@ -9,5 +9,5 @@ objc_library(
 
 apple_dynamic_xcframework_import(
     name = "GoogleSignInXCFramework",
-    xcframework_imports = glob(["GoogleSignIn.xcframwork/**"]),
+    xcframework_imports = glob(["GoogleSignIn.xcframework/**"]),
 )
