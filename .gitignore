@@ -1,5 +1,6 @@
 .DS_Store
 
+Info.plist
 GoogleSignIn.xcodeproj/
 GoogleSignIn.xcframework/
 archives/

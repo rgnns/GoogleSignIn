@@ -2,6 +2,9 @@
 
 xcodegen generate
 
+rm -rf archives
+rm -rf GoogleSignIn.xcframework
+
 xcodebuild archive \
 	-project GoogleSignIn.xcodeproj \
 	-scheme GoogleSignIn \
