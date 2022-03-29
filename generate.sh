@@ -8,7 +8,7 @@ fi
 rm -rf archives
 rm -rf GoogleSignIn.xcframework
 
-xcodebuild archive \
+arch -x86_64 xcodebuild archive \
 	-project GoogleSignIn.xcodeproj \
 	-scheme GoogleSignIn \
 	-destination "generic/platform=iOS" \
@@ -16,7 +16,7 @@ xcodebuild archive \
 	SKIP_INSTALL=NO \
 	BUILD_LIBRARY_FOR_DISTRIBUTION=YES
 
-xcodebuild archive \
+arch -x86_64 xcodebuild archive \
 	-project GoogleSignIn.xcodeproj \
 	-scheme GoogleSignIn \
 	-destination "generic/platform=iOS Simulator" \
@@ -24,7 +24,7 @@ xcodebuild archive \
 	SKIP_INSTALL=NO \
 	BUILD_LIBRARY_FOR_DISTRIBUTION=YES
 
-xcodebuild -create-xcframework \
+arch -x86_64 xcodebuild -create-xcframework \
 	-framework "archives/GoogleSignIn-iphonesimulator.xcarchive/Products/Library/Frameworks/GoogleSignIn.framework" \
 	-framework "archives/GoogleSignIn-iphoneos.xcarchive/Products/Library/Frameworks/GoogleSignIn.framework" \
 	-output "GoogleSignIn.xcframework"
