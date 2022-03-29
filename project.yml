@@ -22,20 +22,13 @@ targets:
   GoogleSignIn:
     type: framework
     platform: iOS
+    info:
+      path: "GoogleSignIn/Info.plist"
     settings:
-      base:          
+      base:
         PRODUCT_BUNDLE_IDENTIFIER: "com.google.GoogleSignIn"
         GCC_PREPROCESSOR_DEFINITIONS: "$(inherited) SWIFT_PACKAGE=1 GID_SDK_VERSION=6.1.0"
         HEADER_SEARCH_PATHS: "$(SRCROOT)/**"
-    info:
-      path: Info.plist
-      properties:
-        CFBundleExecutable: GoogleSignIn
-        CFBundleIdentifier: com.google.GoogleSignIn
-        CFBundleInfoDictionaryVeresion: 6.0
-        CFBundleName: GoogleSignIn
-        CFBundlePackageType: FMWK
-        CFBundleVersion: 6.1.0
     sources:
       - path: GoogleSignIn/Sources
         buildPhase: sources

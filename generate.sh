@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-xcodegen generate
+if [ ! -d "GoogleSignIn.xcodeproj" ]; then
+	echo "Xcode project not generated yet. Run 'xcodegen generate' first."
+	exit 1
+fi
 
 rm -rf archives
 rm -rf GoogleSignIn.xcframework
