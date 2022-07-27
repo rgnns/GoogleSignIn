@@ -2,6 +2,7 @@ name: GoogleSignIn
 
 options:
   minimumXcodeGenVersion: 2.23.1
+  createIntermediateGroups: true
   groupSortPosition: top
   generateEmptyDirectories: true
   deploymentTarget:
@@ -28,27 +29,18 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: "com.google.GoogleSignIn"
         GCC_PREPROCESSOR_DEFINITIONS: "$(inherited) SWIFT_PACKAGE=1 GID_SDK_VERSION=6.1.0"
         HEADER_SEARCH_PATHS: "$(SRCROOT)/**"
-        MODULEMAP_FILE: "$(SRCROOT)/GoogleSignIn/Sources/Public/GoogleSignIn/module.modulemap"
     sources:
-      - path: GoogleSignIn/Sources/Public/GoogleSignIn/module.modulemap
-        buildPhase:
-          copyFiles:
-            destination: productsDirectory
-            subpath: include/$(PRODUCT_NAME)
       - path: GoogleSignIn/Sources
         buildPhase: sources
         includes:
           - "*.[hm]"
       - path: GoogleSignIn/Sources/Resources
-        name: Resources
         buildPhase: resources
         type: folder
       - path: GoogleSignIn/Sources/Strings
-        name: Strings
         buildPhase: resources
         type: folder
       - path: GoogleSignIn/Sources/Public
-        name: Public
         buildPhase: headers
         headerVisibility: public
     dependencies:
