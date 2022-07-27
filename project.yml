@@ -6,7 +6,7 @@ options:
   generateEmptyDirectories: true
   deploymentTarget:
     iOS: 13.0
-  
+
 packages:
   AppAuth:
     url: https://github.com/openid/AppAuth-iOS.git
@@ -28,7 +28,13 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: "com.google.GoogleSignIn"
         GCC_PREPROCESSOR_DEFINITIONS: "$(inherited) SWIFT_PACKAGE=1 GID_SDK_VERSION=6.1.0"
         HEADER_SEARCH_PATHS: "$(SRCROOT)/**"
+        MODULEMAP_FILE: "$(SRCROOT)/GoogleSignIn/Sources/Public/GoogleSignIn/module.modulemap"
     sources:
+      - path: GoogleSignIn/Sources/Public/GoogleSignIn/module.modulemap
+        buildPhase:
+          copyFiles:
+            destination: productsDirectory
+            subpath: include/$(PRODUCT_NAME)
       - path: GoogleSignIn/Sources
         buildPhase: sources
         includes:

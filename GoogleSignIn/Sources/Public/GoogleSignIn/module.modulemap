@@ -1,0 +1,4 @@
+module GoogleSignIn {
+  umbrella header "GoogleSignIn.h"
+  export *
+}

@@ -20,4 +20,5 @@ git clone --depth 1 --branch $GSIGNIN_VERSION https://github.com/google/GoogleSi
 mv GoogleSignIn-iOS/GoogleSignIn GoogleSignIn
 mv GoogleSignIn-iOS/LICENSE .
 cp Info.plist GoogleSignIn/
+cp module.modulemap GoogleSignIn/Sources/Public/GoogleSignIn/
 rm -rf GoogleSignIn-iOS
